@@ -19,7 +19,7 @@
   )
 }
 
-// Check if a acronym exists
+// Check if an acronym exists
 #let isValid(acr) = {
   acros.display(acronyms => {
     if acr not in acronyms {
@@ -40,14 +40,14 @@
   if link {display-link(acr, text)} else {text}
 }
 
-// Display an acronym in short form.
+// Display acronym in short form.
 #let acrs(acr, plural: false, link: true) = {
   if plural {display(acr, acr + "s", link: link)} else {display(acr, acr, link: link)}
 }
-// Display an acronym in short plural form
+// Display acronym in short plural form
 #let acrspl(acr, link: true) = {acrs(acr, plural: true, link: link)}
 
-// Display an acronym in long form.
+// Display acronym in long form.
 #let acrl(acr, plural: false, link: true) = {
   acros.display(acronyms => {
     if isValid(acr) {
@@ -79,10 +79,10 @@
     }
   })
 }
-// Display an acronym in long plural form.
+// Display acronym in long plural form.
 #let acrlpl(acr, link: true) = {acrl(acr, plural: true, link: link)}
 
-// Display an acronym for the first time. 
+// Display acronym for the first time. 
 #let acrf(acr, plural: false, link: true) = {
   if plural {
     display(acr, [#acrlpl(acr) (#acr\s)], link: link)
@@ -91,10 +91,10 @@
   }
   state(prefix + acr, false).update(true)
 }
-// Display a acronym in plural form for the first time.
+// Display acronym in plural form for the first time.
 #let acrfpl(acr, link: true) = {acrf(acr, plural: true, link: link)}
 
-// Display an acronym. Expands it if used for the first time.
+// Display acronym. Expands it if used for the first time.
 #let acr(acr, plural: false, link: true) = {
   state(prefix + acr, false).display(seen => {
     if seen {
@@ -104,12 +104,12 @@
     }
   })
 }
-// Display an acronym in the plural form. Expands it if used for the first time. 
+// Display acronym in the plural form. Expands it if used for the first time. 
 #let acrpl(acronym, link: true) = {acr(acronym, plural: true, link: link)}
 
 // Print an index of all the acronyms and their definitions.
 #let print-index(title: "List of Abbreviations", sorted: "up", delimiter: ":", acr-col-size: 20%, level: 1) = {
-  assert(sorted in ("keep","up","down"), message:"Sorted must be a string either \"\", \"up\" or \"down\"")
+  assert(sorted in ("keep","up","down"), message:"Sorted must be a string either \"keep\", \"up\" or \"down\"")
   if title != "" {heading(level: level, outlined: outlined)[#title]}
   acros.display(acronyms=>{
     let acr-list = acronyms.keys()

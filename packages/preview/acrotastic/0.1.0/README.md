@@ -2,7 +2,7 @@
 
 Manages all your acronyms for you.
 
-Acrotastics main features are auto-expansion of the first occurence, manual short and long forms, implicit or manual plural form support, and customizable linkable index printing.
+Acrotastics main features are clickable abbreviations that auto-expand on the first occurence, manual short and long forms, implicit or manual plural form support, and customizable index printing.
 
 ## Quick Start
 
@@ -87,7 +87,7 @@ You can also print an index of all acronyms used in the document with the `#prin
 Moreover you have to be careful when using states.
 
 - For every acronym "ABC" that you define, the state named "acronym-state-ABC" is initialized and used. To avoid errors, do not try to use this state manually for other purposes. Similarly, the state named "acronyms" is reserved to Acrotastic. Please avoid using it.
-- The functions above are leveraging the state `display` function and only works if the return value is actually printed in the document. For more information on states, see the [Typst documentation on states]([State Type – Typst Documentation](https://typst.app/docs/reference/introspection/state/)).
+- The functions above are leveraging the state `display` function and only works if the return value is actually printed in the document. For more information on states, see the [Typst documentation on states](https://typst.app/docs/reference/introspection/state/).
 
 ## Contributing
 
