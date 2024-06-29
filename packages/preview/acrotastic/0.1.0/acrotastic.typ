@@ -108,7 +108,7 @@
 #let acrpl(acronym, link: true) = {acr(acronym, plural: true, link: link)}
 
 // Print an index of all the acronyms and their definitions.
-#let print-index(title: "List of Abbreviations", sorted: "up", delimiter: ":", acr-col-size: 20%, level: 1) = {
+#let print-index(title: "List of Abbreviations", outlined: false, sorted: "up", delimiter: ":", acr-col-size: 20%, level: 1) = {
   assert(sorted in ("keep","up","down"), message:"Sorted must be a string either \"keep\", \"up\" or \"down\"")
   if title != "" {heading(level: level, outlined: outlined)[#title]}
   acros.display(acronyms=>{
